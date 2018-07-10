@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:2.73
+FROM jenkinsci/jenkins
 
 # Copy the file that will install the plugins
 COPY install-plugins.sh /usr/local/bin/install-plugins.sh
