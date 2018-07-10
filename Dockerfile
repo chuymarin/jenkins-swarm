@@ -1,7 +1,7 @@
-FROM jenkins
+FROM jenkins/jenkins:2.73
 
-COPY plugins.txt /usr/share/jenkins/plugins.txt
-RUN /usr/local/bin/plugins.sh /usr/share/jenkins/plugins.txt
+# Copy the file that will install the plugins
+COPY install-plugins.sh /usr/local/bin/install-plugins.sh
 
-# remove executors in master
-COPY master-executors.groovy /usr/share/jenkins/ref/init.groovy.d/
+# Add/Remove the plugins you want
+RUN /usr/local/bin/install-plugins.sh swarm
